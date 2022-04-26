@@ -47,6 +47,18 @@ variable "bandwidth" {
   }
 }
 
+variable "ip_forward" {
+  description = "Enable/disable command `ip forward`."
+  type        = bool
+  default     = false
+}
+
+variable "ip_drop_glean" {
+  description = "Enable/disable command `ip drop-glean`."
+  type        = bool
+  default     = false
+}
+
 variable "medium" {
   description = "Administrative port medium type."
   type        = string
@@ -86,7 +98,7 @@ variable "ipv4_address" {
   default     = null
 
   validation {
-    condition     = can(regex("^\\d+\\.\\d+\\.\\d+\\.\\d+\\/\\d+$", var.ipv4_address))
+    condition     = var.ipv4_address == null || can(regex("^\\d+\\.\\d+\\.\\d+\\.\\d+\\/\\d+$", var.ipv4_address))
     error_message = "Allowed characters: `0`-`9`, `.`, `/`."
   }
 }

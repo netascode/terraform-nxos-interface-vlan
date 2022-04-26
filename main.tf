@@ -23,6 +23,8 @@ resource "nxos_svi_interface_vrf" "nwRtVrfMbr" {
 resource "nxos_ipv4_interface" "ipv4If" {
   vrf          = var.vrf
   interface_id = local.id
+  forward      = var.ip_forward ? "enabled" : "disabled"
+  drop_glean   = var.ip_drop_glean ? "enabled" : "disabled"
   depends_on = [
     nxos_svi_interface_vrf.nwRtVrfMbr
   ]

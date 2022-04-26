@@ -45,6 +45,8 @@ module "nxos_interface_vlan" {
 | <a name="input_delay"></a> [delay](#input\_delay) | The administrative port delay time. Minimum value: 1. Maximum value: 16777215. | `number` | `1` | no |
 | <a name="input_description"></a> [description](#input\_description) | Interface description. | `string` | `""` | no |
 | <a name="input_bandwidth"></a> [bandwidth](#input\_bandwidth) | Specifies the administrative port bandwidth. Minimum value: 1. Maximum value: 400000000. | `number` | `1000000` | no |
+| <a name="input_ip_forward"></a> [ip\_forward](#input\_ip\_forward) | Enable/disable command `ip forward`. | `bool` | `false` | no |
+| <a name="input_ip_drop_glean"></a> [ip\_drop\_glean](#input\_ip\_drop\_glean) | Enable/disable command `ip drop-glean`. | `bool` | `false` | no |
 | <a name="input_medium"></a> [medium](#input\_medium) | Administrative port medium type. | `string` | `"bcast"` | no |
 | <a name="input_mtu"></a> [mtu](#input\_mtu) | Administrative port MTU. Minimum value: 576. Maximum value: 9216. | `number` | `1500` | no |
 | <a name="input_vrf"></a> [vrf](#input\_vrf) | VRF Name. | `string` | `"default"` | no |
