@@ -28,13 +28,13 @@ module "nxos_interface_vlan" {
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.0 |
-| <a name="requirement_nxos"></a> [nxos](#requirement\_nxos) | >= 0.3.5 |
+| <a name="requirement_nxos"></a> [nxos](#requirement\_nxos) | >= 0.3.6 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_nxos"></a> [nxos](#provider\_nxos) | >= 0.3.5 |
+| <a name="provider_nxos"></a> [nxos](#provider\_nxos) | >= 0.3.6 |
 
 ## Inputs
 
@@ -44,7 +44,7 @@ module "nxos_interface_vlan" {
 | <a name="input_admin_state"></a> [admin\_state](#input\_admin\_state) | Administrative port state. Set `true` for `up` or `false` for `down`. | `bool` | `true` | no |
 | <a name="input_delay"></a> [delay](#input\_delay) | The administrative port delay time. Minimum value: 1. Maximum value: 16777215. | `number` | `1` | no |
 | <a name="input_description"></a> [description](#input\_description) | Interface description. | `string` | `""` | no |
-| <a name="input_bandwidth"></a> [bandwidth](#input\_bandwidth) | Specifies the administrative port bandwidth. Minimum value: 1. Maximum value: 400000000. | `number` | `1000000` | no |
+| <a name="input_bandwidth"></a> [bandwidth](#input\_bandwidth) | Interface bandwidth. Minimum value: 1. Maximum value: 400000000. | `number` | `1000000` | no |
 | <a name="input_ip_forward"></a> [ip\_forward](#input\_ip\_forward) | Enable/disable command `ip forward`. | `bool` | `false` | no |
 | <a name="input_ip_drop_glean"></a> [ip\_drop\_glean](#input\_ip\_drop\_glean) | Enable/disable command `ip drop-glean`. | `bool` | `false` | no |
 | <a name="input_medium"></a> [medium](#input\_medium) | Administrative port medium type. | `string` | `"bcast"` | no |

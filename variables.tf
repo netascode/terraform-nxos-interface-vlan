@@ -37,7 +37,7 @@ variable "description" {
 }
 
 variable "bandwidth" {
-  description = "Specifies the administrative port bandwidth. Minimum value: 1. Maximum value: 400000000."
+  description = "Interface bandwidth. Minimum value: 1. Maximum value: 400000000."
   type        = number
   default     = 1000000
 
