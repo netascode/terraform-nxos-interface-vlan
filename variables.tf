@@ -1,3 +1,9 @@
+variable "device" {
+  description = "A device name from the provider configuration."
+  type        = string
+  default     = null
+}
+
 variable "id" {
   description = "Interface ID. Allowed format: `1`."
   type        = number

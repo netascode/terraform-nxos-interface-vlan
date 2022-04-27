@@ -3,6 +3,7 @@ locals {
 }
 
 resource "nxos_svi_interface" "sviIf" {
+  device       = var.device
   interface_id = local.id
   admin_state  = var.admin_state ? "up" : "down"
   description  = var.description
@@ -13,6 +14,7 @@ resource "nxos_svi_interface" "sviIf" {
 }
 
 resource "nxos_svi_interface_vrf" "nwRtVrfMbr" {
+  device       = var.device
   interface_id = local.id
   vrf_dn       = "sys/inst-${var.vrf}"
   depends_on = [
@@ -21,6 +23,7 @@ resource "nxos_svi_interface_vrf" "nwRtVrfMbr" {
 }
 
 resource "nxos_ipv4_interface" "ipv4If" {
+  device       = var.device
   vrf          = var.vrf
   interface_id = local.id
   forward      = var.ip_forward ? "enabled" : "disabled"
@@ -32,6 +35,7 @@ resource "nxos_ipv4_interface" "ipv4If" {
 
 resource "nxos_ipv4_interface_address" "ipv4Addr" {
   count        = var.ipv4_address != null ? 1 : 0
+  device       = var.device
   vrf          = var.vrf
   interface_id = local.id
   address      = var.ipv4_address
