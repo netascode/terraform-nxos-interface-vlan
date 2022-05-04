@@ -14,7 +14,7 @@ Note that this example will create resources. Resources can be destroyed with `t
 ```hcl
 module "nxos_interface_vlan" {
   source  = "netascode/interface-vlan/nxos"
-  version = ">= 0.0.1"
+  version = ">= 0.1.0"
 
   id           = 10
   admin_state  = true
