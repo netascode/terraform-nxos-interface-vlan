@@ -12,14 +12,18 @@ Model Documentation: [Link](https://developer.cisco.com/docs/cisco-nexus-3000-an
 ```hcl
 module "nxos_interface_vlan" {
   source  = "netascode/interface-vlan/nxos"
-  version = ">= 0.1.0"
+  version = ">= 0.1.1"
 
   id           = 10
   admin_state  = true
   vrf          = "VRF1"
   ipv4_address = "3.1.1.1/24"
-  description  = "Terraform was here"
-  mtu          = 9216
+  ipv4_secondary_addresses = [
+    "2.1.2.1/24",
+    "2.1.3.1/24"
+  ]
+  description = "Terraform was here"
+  mtu         = 9216
 }
 ```
 
@@ -28,13 +32,13 @@ module "nxos_interface_vlan" {
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.0 |
-| <a name="requirement_nxos"></a> [nxos](#requirement\_nxos) | >= 0.3.7 |
+| <a name="requirement_nxos"></a> [nxos](#requirement\_nxos) | >= 0.3.11 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_nxos"></a> [nxos](#provider\_nxos) | >= 0.3.7 |
+| <a name="provider_nxos"></a> [nxos](#provider\_nxos) | 0.3.12 |
 
 ## Inputs
 
@@ -52,6 +56,7 @@ module "nxos_interface_vlan" {
 | <a name="input_mtu"></a> [mtu](#input\_mtu) | Administrative port MTU. Minimum value: 576. Maximum value: 9216. | `number` | `1500` | no |
 | <a name="input_vrf"></a> [vrf](#input\_vrf) | VRF Name. | `string` | `"default"` | no |
 | <a name="input_ipv4_address"></a> [ipv4\_address](#input\_ipv4\_address) | Interface IPv4 address. Allowed format: `192.168.0.1/24`. | `string` | `null` | no |
+| <a name="input_ipv4_secondary_addresses"></a> [ipv4\_secondary\_addresses](#input\_ipv4\_secondary\_addresses) | List of Interface IPv4 secondary addresses. Allowed format: `192.168.0.1/24`. | `list(string)` | `[]` | no |
 
 ## Outputs
 
@@ -65,6 +70,7 @@ module "nxos_interface_vlan" {
 |------|------|
 | [nxos_ipv4_interface.ipv4If](https://registry.terraform.io/providers/netascode/nxos/latest/docs/resources/ipv4_interface) | resource |
 | [nxos_ipv4_interface_address.ipv4Addr](https://registry.terraform.io/providers/netascode/nxos/latest/docs/resources/ipv4_interface_address) | resource |
+| [nxos_ipv4_interface_address.secondary_ipv4Addr](https://registry.terraform.io/providers/netascode/nxos/latest/docs/resources/ipv4_interface_address) | resource |
 | [nxos_svi_interface.sviIf](https://registry.terraform.io/providers/netascode/nxos/latest/docs/resources/svi_interface) | resource |
 | [nxos_svi_interface_vrf.nwRtVrfMbr](https://registry.terraform.io/providers/netascode/nxos/latest/docs/resources/svi_interface_vrf) | resource |
 <!-- END_TF_DOCS -->

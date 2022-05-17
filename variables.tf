@@ -108,3 +108,16 @@ variable "ipv4_address" {
     error_message = "Allowed characters: `0`-`9`, `.`, `/`."
   }
 }
+
+variable "ipv4_secondary_addresses" {
+  description = "List of Interface IPv4 secondary addresses. Allowed format: `192.168.0.1/24`."
+  type        = list(string)
+  default     = []
+
+  validation {
+    condition = alltrue([
+      for v in var.ipv4_secondary_addresses : can(regex("^\\d+\\.\\d+\\.\\d+\\.\\d+\\/\\d+$", v))
+    ])
+    error_message = "Allowed characters: `0`-`9`, `.`, `/`."
+  }
+}
