@@ -39,7 +39,20 @@ resource "nxos_ipv4_interface_address" "ipv4Addr" {
   vrf          = var.vrf
   interface_id = local.id
   address      = var.ipv4_address
+  type         = "primary"
   depends_on = [
     nxos_ipv4_interface.ipv4If
+  ]
+}
+
+resource "nxos_ipv4_interface_address" "secondary_ipv4Addr" {
+  for_each     = toset(var.ipv4_secondary_addresses)
+  device       = var.device
+  vrf          = var.vrf
+  interface_id = local.id
+  address      = each.value
+  type         = "secondary"
+  depends_on = [
+    nxos_ipv4_interface_address.ipv4Addr
   ]
 }

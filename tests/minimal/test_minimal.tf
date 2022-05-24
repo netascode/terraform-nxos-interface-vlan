@@ -6,7 +6,7 @@ terraform {
 
     nxos = {
       source  = "netascode/nxos"
-      version = ">=0.3.7"
+      version = ">=0.3.11"
     }
   }
 }
