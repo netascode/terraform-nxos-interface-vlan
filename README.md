@@ -38,7 +38,7 @@ module "nxos_interface_vlan" {
 
 | Name | Version |
 |------|---------|
-| <a name="provider_nxos"></a> [nxos](#provider\_nxos) | 0.3.12 |
+| <a name="provider_nxos"></a> [nxos](#provider\_nxos) | >= 0.3.11 |
 
 ## Inputs
 
